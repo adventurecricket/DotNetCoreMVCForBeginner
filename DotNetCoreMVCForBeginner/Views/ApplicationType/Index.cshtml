@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ApplicationType>
+
+@{
+    ViewData["Title"] = "ApplicationType";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">ApplicationType</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="ApplicationType" asp-action="Create" class="btn btn-primary">Add new</a>
+        </div>
+    </div>
+
+    @if (Model.Count() > 0) {
+        <table class="table table-bordered table-striped" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Category name</th>
+                    <th>Display order</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ApplicationType applicationType in Model) { 
+                <tr>
+                    <td>
+                        @applicationType.Id
+                    </td>
+                    <td>
+                        @applicationType.Name
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
